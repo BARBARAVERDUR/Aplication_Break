@@ -151,9 +151,12 @@ public class ClientService implements UserDetailsService{
             if (client.getRol().equals(Rol.USER)) {
 
                 client.setRol(Rol.ADMIN);
+               
+                clientRepository.save(client);
 
             } else if (client.getRol().equals(Rol.ADMIN)) {
                 client.setRol(Rol.USER);
+                clientRepository.save(client);
             }
         }
     }

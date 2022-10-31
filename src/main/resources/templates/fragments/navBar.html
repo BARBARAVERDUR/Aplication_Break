@@ -1,7 +1,7 @@
        <nav class="navbar navbar-expand-lg navBar">
             <div class="containerImg">
                 <a href="/" class="navbar-brand d-flex align-items-center">
-                    <img class="logo" src="/src/main/resources/assets/assets/7.png" alt="Img logo Break">
+                    <img class="logo" src="/src/main/resources/estaticos/img/7.png" alt="Img logo Break">
                 </a>
             </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,33 +9,7 @@
             </button>
             <div class="collapse navbar-collapse elementosNav" id="navbarNavDropdown">
                 <ul class="navbar-nav ms-auto elementos">
-                    <li class="nav-item dropdown" th:if="${session.clientsession != null}" sec:authorize="hasAuthority('ADMIN')">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Users
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-                            <li><a class="dropdown-item"  th:href="@{/register}">New User</a></li>
-                            <li><hr class="dropdown-divider"></li>
-
-                            <li><a class="dropdown-item"  th:href="@{/admin/list}">User List</a></li>
-                        </ul>
-                    </li>
-
-
-                    <li class="nav-item dropdown" th:if="${session.clientsession != null}"  sec:authorize="hasAuthority('ADMIN')" >
-                        <a class="nav-link dropdown-toggle"  href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Classes
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-                            <li><a class="dropdown-item" th:href="@{/classes/register}">Add Class</a></li>
-                            <li><hr class="dropdown-divider"></li>
-
-                            <li><a class="dropdown-item"  th:href="@{/classes/list}">Class List</a></li>
-                        </ul>
-                    </li>
-
+                   
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" th:if="${session.clientsession != null}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Profile

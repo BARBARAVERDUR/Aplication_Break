@@ -50,7 +50,7 @@ public class PortalControlador { //localhost:8080/
             clientService.register(file,dni, name, email, password, password2, price, id);
             
             model.put("success", "Successfully registered user");
-            return "index.html";   
+            return "panel.html";   
      
         } catch (MyException ex) {
            
@@ -87,7 +87,7 @@ public class PortalControlador { //localhost:8080/
            
            return "redirect:/admin/dashboard";
        }
-       return "home.html";
+       return "login.html";
    }
    
     @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")

@@ -24,10 +24,10 @@ public class AdminControlador {
     @GetMapping("/dashboard")
     public  String panelAdministrativo(){
         
-        return "home.html";
+        return "panel.html";
     }
     
-      @GetMapping("/list")
+    @GetMapping("/list")
     public String clientList(ModelMap model){
         
         List<Client> client = clientService.userList();
@@ -38,12 +38,15 @@ public class AdminControlador {
     }
     
     //Troca o Rol do User   
+     
     @GetMapping("/changeRol/{dni}")
-    public String changeRol(@PathVariable String dni){
-        
+    public String changeRol(@PathVariable String dni,ModelMap model)throws MyException{
+ 
         clientService.changeRol(dni);
         
-        return "redirect:/admin/list";
+        model.put("success", "Rol changed successfully!");
+        return "panel.html";
+             
     }
     
     
