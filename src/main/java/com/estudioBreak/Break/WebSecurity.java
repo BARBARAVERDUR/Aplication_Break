@@ -36,7 +36,7 @@ public class WebSecurity  extends WebSecurityConfigurerAdapter{
                 .antMatchers("/css/*", "/js/*", "/img/*", "/**")
                 .permitAll()
             .and().formLogin()
-                .loginPage("/login")
+                .loginPage("/")
                 .loginProcessingUrl("/logincheck")
                 .usernameParameter("email")
                 .passwordParameter("password")
@@ -44,7 +44,7 @@ public class WebSecurity  extends WebSecurityConfigurerAdapter{
                 .permitAll()
             .and().logout()
                 .logoutUrl("/logout")
-                .logoutSuccessUrl("/login")
+                .logoutSuccessUrl("/")
                 .permitAll()
             .and().csrf()
                 .disable();

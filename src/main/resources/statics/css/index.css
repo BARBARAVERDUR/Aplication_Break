@@ -10,6 +10,10 @@
     font-weight: 700;
 }
 
+.elementos{
+    margin-right: 50px;
+}
+
 .containerImg{
     width: 20%;
 }
@@ -19,11 +23,39 @@
     margin: auto;
 }
 
-.main{
-    background-image: url(../img/FondoZoom.jpg);
+.gymtittle{
+    width: 80%;
+    text-align: center;
+    font-size: 40px;
+    margin-top: 80px;
+    font-weight: 500;
+}
+
+.header{
+
     background-size: cover;
-    height: 400px;
+    height: 550px;
     display: flex;
+    justify-content: end;
+}
+
+.legend{
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.tittleWelcome{
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.contenedorMain{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
@@ -38,19 +70,11 @@
     box-shadow: 0px 2px 16px 4px rgba(0,0,0,0.36);
     -webkit-box-shadow: 0px 2px 16px 4px rgba(0,0,0,0.36);
     -moz-box-shadow: 0px 2px 16px 4px rgba(0,0,0,0.36);
-    margin-right: 10px;
-    margin-left: -10px;
 }
 
-.botonCargar{
-    box-shadow: 0px 2px 16px 4px rgba(0,0,0,0.36);
-    -webkit-box-shadow: 0px 2px 16px 4px rgba(0,0,0,0.36);
-    -moz-box-shadow: 0px 2px 16px 4px rgba(0,0,0,0.36);
+.boton:hover{
+    background-color: #ffcb00;
 }
-
 .boton:active{
-    box-shadow: none;
-}
-.botonCargar:active{
     box-shadow: none;
 }

@@ -30,7 +30,11 @@ public class PortalControlador { //localhost:8080/
     private ClassService classService;
     
     @GetMapping("/")
-    public String index(){
+    public String index(@RequestParam(required = false)String error,ModelMap model){
+        if(error != null){
+            model.put("error", "User or Password invalid");
+        }
+ 
         return "index.html";
     }
     
@@ -50,7 +54,7 @@ public class PortalControlador { //localhost:8080/
             clientService.register(file,dni, name, email, password, password2, price, id);
             
             model.put("success", "Successfully registered user");
-            return "panel.html";   
+            return "index.html";   
      
         } catch (MyException ex) {
            
@@ -64,30 +68,19 @@ public class PortalControlador { //localhost:8080/
            return "register.html";
        }
     }
-    
-    
-   @GetMapping("/login")
-    public String login(@RequestParam(required = false)String error, ModelMap modelo){
-        if(error != null){
-            modelo.put("error", "User or Password invalid");
-        }
-        
-        return "login.html";
-    }
-    
   
     
    @PreAuthorize("hasAnyRole('ROLE_USER','ROLE_ADMIN')")
    @GetMapping("/home")
-   public String inicio(HttpSession session){
+   public String inicio(HttpSession session, ModelMap model) {
        
        Client logueado = (Client) session.getAttribute("clientsession");
-       
-       if(logueado.getRol().toString().equals("ADMIN")){
+       if (logueado.getRol().toString().equals("ADMIN")) {
            
-           return "redirect:/admin/dashboard";
+           return "redirect:/admin/dashboard";     
        }
-       return "login.html";
+       return "home.html";
+ 
    }
    
     @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
