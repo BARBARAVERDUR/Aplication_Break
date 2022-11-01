@@ -17,12 +17,14 @@
                     <label class="mb-2">Edit</label>              
                 </div>
   
-                 <div class="form-group my-3">
+                <div class="form-group my-3">
                     <input type="text" class="form-control" name="name" placeholder="Full Name" th:value="${name}">
                 </div>
+                
                 <div class="form-group my-3">
                     <input type="number" class="form-control" name="dni" placeholder="Dni" th:value="${dni}">
                 </div>
+                
                 <div class="form-group my-3">
                     <input type="email" class="form-control" name="email" placeholder="email@email.com" th:value="${email}">
                 </div> 
@@ -30,6 +32,7 @@
                 <div class="form-group my-3">
                     <input type="password" class="form-control" name="password" placeholder="Password" >
                 </div>
+                
                 <div class="form-group my-3">
                     <input type="password" class="form-control" name="password2" placeholder="Repeat Password" >
                 </div>
@@ -46,8 +49,7 @@
                                 />
                     </select>
                 </div>
-                
-                   
+                                   
                 <div class="form-group my-3">
                     <input type="number" class="form-control" name="price" placeholder="Class Value" th:value="${price}">
                 </div>
@@ -56,34 +58,43 @@
                     <input type="file" class="form-control" name="file" >
                 </div>
                 
-
                 <button type="submit" class="btn btn-primary mt-3 botones">Save</button>
                 
             </form>
 
+            
             <div th:if="${success}!=null" class="card text-white bg-success mb-3 mt-3 mensajeExito" >
                 <div class="card-body">
                     <h5 class="card-title">Success 👍</h5>
                     <p class="card-text" th:text="${success}"></p>
                 </div>
             </div>
+            
             <div th:if="${error}!=null" class="card text-white bg-danger mb-3 mensajeError" >
                 <div class="card-body">
                     <h5 class="card-title">Error 👎</h5>
                     <p class="card-text" th:text="${error}"></p>
                 </div>
             </div>
+            
+            
             <section class=" text-center container">
+                
                 <div class="row mt-3">
+                    
                     <div class="divVolver">
                         <a th:href="@{/home}" class="btn btn-secondary my-2 botonVolver botones">Back</a>
                     </div>
+                
                 </div>
+                
             </section>
+      
         </div>
 
       <footer th:replace="/fragments/footer :: footer"> </footer>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+  
     </body>
 </html> 

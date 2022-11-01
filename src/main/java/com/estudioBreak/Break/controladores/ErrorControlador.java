@@ -1,4 +1,3 @@
-
 package com.estudioBreak.Break.controladores;
 
 import javax.servlet.http.HttpServletRequest;
@@ -8,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-@Controller
+@Controller // capturamos os erros e s/ o caso injetamos o codigo c/ estilo
 public class ErrorControlador implements ErrorController {
     
     
@@ -46,7 +45,8 @@ public class ErrorControlador implements ErrorController {
 
 		errorPage.addObject("codigo", httpErrorCode);
 		errorPage.addObject("message", errorMsg);
-		return errorPage;
+		
+                return errorPage;
 	}
 
 	private int getErrorCode(HttpServletRequest httpRequest) {

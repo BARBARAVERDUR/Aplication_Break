@@ -1,4 +1,3 @@
-
 package com.estudioBreak.Break;
 
 import com.estudioBreak.Break.servicios.ClientService;
@@ -50,6 +49,5 @@ public class WebSecurity  extends WebSecurityConfigurerAdapter{
                 .disable();
                 
     }
-    
-    
+        
 }

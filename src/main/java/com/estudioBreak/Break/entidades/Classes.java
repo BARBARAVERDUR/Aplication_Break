@@ -1,4 +1,3 @@
-
 package com.estudioBreak.Break.entidades;
 
 import java.util.Date;
@@ -59,6 +58,5 @@ public class Classes {
         this.classDate = classDate;
     }
     
+}    
     
-    
-}

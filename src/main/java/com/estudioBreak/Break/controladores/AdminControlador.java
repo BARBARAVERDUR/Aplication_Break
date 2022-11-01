@@ -44,7 +44,7 @@ public class AdminControlador {
         clientService.changeRol(dni);
         
         model.put("success", "Rol changed successfully!");
-        return "panel.html";
+        return "redirec:/admin/list";
              
     }
     

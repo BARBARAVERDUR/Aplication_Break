@@ -1,6 +1,5 @@
 package com.estudioBreak.Break.entidades;
 
-
 import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;

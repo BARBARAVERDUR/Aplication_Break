@@ -3,21 +3,28 @@
     <head th:replace= "/fragments/head :: head" </head>
 
     <body>
+        
       <nav class="navbar navbar-expand-lg navBar">
+          
             <div class="containerImg">
                 <a href="/" class="navbar-brand d-flex align-items-center">
                     <img class="logo" src="/img/7.png" alt="Img logo Break">
                 </a>
             </div>
+          
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+          
             <div class="collapse navbar-collapse elementosNav" id="navbarNavDropdown">
+                
                 <ul class="navbar-nav ms-auto elementos">
+                    
                     <li class="nav-item dropdown" th:if="${session.clientsession != null}" >
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Users
                         </a>
+                        
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 
                             <li><a class="dropdown-item"  th:href="@{/register}">New User</a></li>
@@ -27,11 +34,12 @@
                         </ul>
                     </li>
 
-
-                    <li class="nav-item dropdown" th:if="${session.clientsession != null}"   >
+                    <li class="nav-item dropdown" th:if="${session.clientsession != null}">
+                        
                         <a class="nav-link dropdown-toggle"  href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Classes
                         </a>
+                        
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 
                             <li><a class="dropdown-item" th:href="@{/classes/register}">Add Class</a></li>
@@ -42,6 +50,7 @@
                     </li>
 
                     <li class="nav-item dropdown">
+                        
                         <a class="nav-link dropdown-toggle" th:if="${session.clientsession != null}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Profile
                         </a>
@@ -60,6 +69,7 @@
                         </a>
 
                     </li>
+                    
                     <li class="nav-item">
                         <a class="nav-link " th:if="${session.clientsession == null}" href="/" id="navbarDropdown" role="button" aria-expanded="false">
                             LOGIN!
@@ -71,18 +81,23 @@
         </nav>
         
         <header class="header">
+            
             <section class="contenedorMain">
+                
                 <div class="tittleWelcome">
                     <a class="navbar-brand" href="#">BREAK</a>
                 </div>
+                
                 <div class="container contenedorMain">
-                    <p class="tittleWelcome">YOUR PLACE TO FIND YOU</p>
+                    <p class="legend">YOUR PLACE TO FIND YOU</p>
                 </div>
+                
                 <div class="bg-circle-1 bg-circle"></div>
                 <div class="bg-circle-2 bg-circle"></div>
                 <div class="bg-circle-3 bg-circle"></div>
                 <div class="bg-circle-4 bg-circle"></div>
             </section>
+   
         </header>
 
         <footer th:replace="/fragments/footer :: footer"> </footer>

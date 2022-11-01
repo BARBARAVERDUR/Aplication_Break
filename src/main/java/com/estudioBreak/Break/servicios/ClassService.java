@@ -1,4 +1,3 @@
-
 package com.estudioBreak.Break.servicios;
 
 import com.estudioBreak.Break.entidades.Classes;
@@ -18,7 +17,7 @@ public class ClassService {
     @Autowired
     private ClassRepository classRepository;
     
-    @Transactional
+    @Transactional //Metodo p/ criar uma nova aula
     public void createClass(String className)throws MyException{
         
         validate(className);
@@ -30,10 +29,9 @@ public class ClassService {
         
         classRepository.save(classes);
     }    
-      
+         
     
-    
-    @Transactional(readOnly = true)    
+    @Transactional(readOnly = true)    //Metodo p/ listar as aulas existentes no banco de dados
     public List<Classes> classList() { 
         
         List<Classes> classes = new ArrayList();
@@ -44,7 +42,7 @@ public class ClassService {
            
     }
     
-    @Transactional
+    @Transactional //Metodo p/ modificar uma aula existente no banco de dados
     public void modifyClass(String className, String id)throws MyException{
        
         validate(className);
@@ -63,12 +61,13 @@ public class ClassService {
         
     } 
     
-    
+    @Transactional(readOnly = true)  //Método para encontrar uma aula existentes no banco de dados s/ id
     public Classes getOne(String id){
         return classRepository.getOne(id);
     }
     
     
+    //Método validar que os dados estão presentes
     private void validate(String className) throws MyException {
 
         if (className.isEmpty() || className == null) {

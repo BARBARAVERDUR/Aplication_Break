@@ -1,4 +1,3 @@
-
 package com.estudioBreak.Break.repositorios;
 
 import com.estudioBreak.Break.entidades.Client;
@@ -27,7 +26,5 @@ public interface ClientRepository extends JpaRepository<Client, String>{
   @Query
   ("SELECT c FROM Client c WHERE c.classes.classDate =:classDate")
    public List<Date> searchByDate(@Param("classDate")Date classDate);
-   
-   
-   
+      
 }

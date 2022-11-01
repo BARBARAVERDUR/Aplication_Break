@@ -1,5 +1,4 @@
- 
-package com.estudioBreak.Break.repositorios;
+ package com.estudioBreak.Break.repositorios;
 
 import com.estudioBreak.Break.entidades.Image;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -1,4 +1,3 @@
-
 package com.estudioBreak.Break.controladores;
 
 import com.estudioBreak.Break.entidades.Classes;
@@ -29,6 +28,7 @@ public class PortalControlador { //localhost:8080/
     @Autowired
     private ClassService classService;
     
+    //Fazemos o login
     @GetMapping("/")
     public String index(@RequestParam(required = false)String error,ModelMap model){
         if(error != null){
@@ -38,6 +38,7 @@ public class PortalControlador { //localhost:8080/
         return "index.html";
     }
     
+    //Chamamos ao registro de usuario
     @GetMapping("/register")
     public String register(ModelMap modelo){
         
@@ -47,6 +48,7 @@ public class PortalControlador { //localhost:8080/
         return "register.html";
     }
     
+    //Chamamos ao service para criar um novo usuario
     @PostMapping("/registration")
     public String registro(MultipartFile file,@RequestParam String dni,@RequestParam String name, @RequestParam String email, @RequestParam String password, String password2, Double price,String id,ModelMap model){
         
@@ -69,7 +71,7 @@ public class PortalControlador { //localhost:8080/
        }
     }
   
-    
+   //Si o login da certo accesamos ao home ou ao panel(sim o user é admin)
    @PreAuthorize("hasAnyRole('ROLE_USER','ROLE_ADMIN')")
    @GetMapping("/home")
    public String inicio(HttpSession session, ModelMap model) {
@@ -80,9 +82,9 @@ public class PortalControlador { //localhost:8080/
            return "redirect:/admin/dashboard";     
        }
        return "home.html";
- 
-   }
+    }
    
+   //Accesamos ao profile do user registrado
     @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
     @GetMapping("/profile")
     public String profile(ModelMap modelo,HttpSession session){
@@ -96,6 +98,7 @@ public class PortalControlador { //localhost:8080/
         return "client_modify.html";
     }
     
+    //Chamamos ao service, perquisamos no banco de dados s/ o dni e modificamos o user
     @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
     @PostMapping("/modify/{dni}")
     public String modify(MultipartFile file,@PathVariable String dni,String name, String email, String password,String password2, Double price, String id, ModelMap model) throws MyException{
@@ -120,6 +123,5 @@ public class PortalControlador { //localhost:8080/
             return "client_modify.html";
         }
     }
-
-   
+  
 }

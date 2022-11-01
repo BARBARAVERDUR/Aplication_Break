@@ -1,4 +1,3 @@
-
 package com.estudioBreak.Break.repositorios;
 
 import com.estudioBreak.Break.entidades.Classes;
@@ -12,7 +11,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ClassRepository extends JpaRepository<Classes, String>{
    
-    
+    //Pesquisamos as aulas s/nome
     @Query
     ("SELECT c FROM Classes c WHERE c.className =: className")
     public Classes findByName(@Param("className")String className);

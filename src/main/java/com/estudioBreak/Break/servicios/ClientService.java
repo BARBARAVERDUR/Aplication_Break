@@ -1,4 +1,3 @@
-
 package com.estudioBreak.Break.servicios;
 
 import com.estudioBreak.Break.entidades.Classes;
@@ -84,6 +83,7 @@ public class ClientService implements UserDetailsService{
     
     
     //Mostramos os usuarios registrados
+    @Transactional(readOnly = true) 
     public List<Client> userList(){
         
         List<Client> clientes = new ArrayList();
@@ -97,17 +97,17 @@ public class ClientService implements UserDetailsService{
     @Transactional
     public void modifyUser(MultipartFile file,String dni ,String name, String email,String password, String password2, Double price, String id )throws MyException{
         
-        validate(dni, name, email, password, password2, price, id); //validamos que los campos esten compltos
+        validate(dni, name, email, password, password2, price, id); 
         
         Optional<Client> response = clientRepository.findById(dni);
-        Optional<Classes> classResponse = classRepository.findById(id);//El optional es un contenedor que devuelve un boolean
+        Optional<Classes> classResponse = classRepository.findById(id);
         
         Classes classes = new Classes();
-        Client client = new Client(); //instanciamos el objeto vacio
+        Client client = new Client(); 
         
-        if(classResponse.isPresent()){ //verificamos que esté presente
+        if(classResponse.isPresent()){ 
             
-            classes = classResponse.get(); //le asignamos el valor que nos devuelve el repositorio
+            classes = classResponse.get(); 
         }
         
         if(response.isPresent()){ 
@@ -131,15 +131,19 @@ public class ClientService implements UserDetailsService{
             
             client.setImage(image);
             
-            clientRepository.save(client); //persistimos en la base de datos
+            clientRepository.save(client); 
         }
         
     }
     
-     public Client getOne(String id){
-        return clientRepository.getOne(id);
+    //Método para encontrar um unico usuário existentes no banco de dados s/ dni
+    @Transactional(readOnly = true) 
+    public Client getOne(String id){
+       return clientRepository.getOne(id);
     }
     
+    
+    //Método para trocar o rol do user
     @Transactional
     public void changeRol(String dni) {
         Optional<Client> response = clientRepository.findById(dni);

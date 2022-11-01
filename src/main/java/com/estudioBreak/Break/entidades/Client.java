@@ -1,4 +1,3 @@
-
 package com.estudioBreak.Break.entidades;
 
 import com.estudioBreak.Break.enumeraciones.Rol;

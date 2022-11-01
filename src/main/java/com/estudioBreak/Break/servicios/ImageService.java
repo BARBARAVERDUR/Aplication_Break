@@ -1,4 +1,3 @@
-
 package com.estudioBreak.Break.servicios;
 
 
@@ -41,7 +40,7 @@ public class ImageService {
         }
         return null;
     }
-    //me quede aqui
+    //método para editar uma imagem existente
     public Image actualizar(MultipartFile file, String idImage) throws MyException{
          if (file != null) {
             try {
@@ -72,6 +71,7 @@ public class ImageService {
         
     }
     
+    //método para listar todas as imagens existentes
     @Transactional(readOnly = true)
 	public List<Image> listarTodos() {
 		return imageRepository.findAll();

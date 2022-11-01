@@ -5,8 +5,6 @@ import com.estudioBreak.Break.entidades.Classes;
 import com.estudioBreak.Break.exceptions.MyException;
 import com.estudioBreak.Break.servicios.ClassService;
 import java.util.List;
-//import java.util.logging.Level;
-//import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;

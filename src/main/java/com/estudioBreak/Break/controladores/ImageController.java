@@ -1,4 +1,3 @@
-
 package com.estudioBreak.Break.controladores;
 
 import com.estudioBreak.Break.entidades.Client;
@@ -31,8 +30,7 @@ public class ImageController {
         HttpHeaders headers = new HttpHeaders(); // Esta cabecera informa ao navegador que returnamos uma imagem
         
         headers.setContentType(MediaType.IMAGE_JPEG);
-        
-        
+               
         //retornamos uma ResponseEntity en formato de bytes = imagem
         return new ResponseEntity<>(image,headers,HttpStatus.OK);
     }
